@@ -1,0 +1,10 @@
+.card.header {
+    margin: 20px 0px;
+}
+
+.header-title {
+    font-size: 25px;
+    font-weight: 600;
+    margin: 20px;
+    display: inline-block;
+}
