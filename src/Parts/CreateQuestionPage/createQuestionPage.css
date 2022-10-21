@@ -1,0 +1,39 @@
+.create-question {
+    margin-top: 20px;
+}
+
+.create-question .cm-editor,
+.create-question .mdPrev {
+    min-height: 400px;
+    height: calc(100vh - 300px);
+    overflow: auto;
+}
+
+.questionName {
+    margin-bottom: 20px;
+}
+
+.mdPrev pre {
+    background: #f7f7f7;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.button-post {
+    display: flex;
+    justify-content: right;
+    margin-top: 20px;
+}
+
+.button-clear .mr-3 {
+    margin-right: 5px;
+}
+
+.button-clear {
+    align-self: center;
+    margin-top: 20px
+}
+
+.btn-cl {
+    margin-left: 10px;
+}

@@ -1,5 +1,9 @@
 html,
-body,
-* {
+body {
     font-family: 'Poppins', sans-serif;
+}
+
+::selection {
+    color: black;
+    background: #fff3cd;
 }

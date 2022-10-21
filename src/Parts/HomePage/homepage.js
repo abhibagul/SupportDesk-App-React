@@ -1,35 +1,23 @@
 import React, { Component } from 'react'
 import Header from './Header/header'
 import ArticleList from '../../Components/ArticlesList/articlesList'
-import ArticleSelectType from '../../Components/ArticleTypeSelector/articleTypeSelector';
-
+import './homepage.css'
 import {
     Routes,
     Route,
-    Link
+    NavLink
 } from "react-router-dom";
-
+import QuestionPageParamConv from '../QuestionPage/questionPageParamConv';
 export default class homepage extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
 
-        this.currentStage = "";
-
-
-    }
-
-    componentDidMount() {
-        if (window.location.href.indexOf('/latest') > -1) {
-            this.currentStage = "Latest";
-        } else {
-            this.currentStage = "Popular";
         }
+
     }
 
-    changeStage = (stage) => {
-        this.currentStage = stage;
-    }
 
     render() {
         return (
@@ -44,22 +32,22 @@ export default class homepage extends Component {
                      *  @Latest , @Popular
                      */
                 }
-                <ul className="nav nav-tabs">
+                <ul className="nav nav-tabs justify-center">
                     <li className="nav-item">
-                        <Link className={this.currentStage === "Latest" ? "nav-link active text-primary" : "nav-link text-secondary"} aria-current="page" onClick={() => this.changeStage("Latest")} to="/questions/latest">Latest</Link>
+                        <NavLink className={"nav-link text-secondary"} activeClassName="nav-link active text-primary" to="/questions/latest">Latest</NavLink>
                     </li>
                     <li className="nav-item">
-                        <Link className={this.currentStage === "Popular" ? "nav-link active text-primary" : "nav-link text-secondary"} onClick={() => this.changeStage("Popular")} to="/questions/popular">Popular</Link>
+                        <NavLink className={"nav-link text-secondary"} activeClassName="nav-link active text-primary" to="/questions/popular">Popular</NavLink>
                     </li>
                 </ul>
                 <Routes>
                     <Route path="/" exact element={<ArticleList orderType="Latest" />} />
                     <Route path="/latest" element={<ArticleList orderType="Latest" />} />
-                    <Route path="popular" element={<ArticleList orderType="Popular" />} />
-                    <Route path="*" element={<ArticleSelectType />} />
+                    <Route path="/popular" element={<ArticleList orderType="Popular" />} />
+                    {/* <Route path="*" element={<SearchResults />} />//to do */}
                 </Routes>
 
-            </div>
+            </div >
         )
     }
 }

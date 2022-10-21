@@ -1,5 +1,6 @@
 .card.header {
     margin: 20px 0px;
+    background: #cfe2ff;
 }
 
 .header-title {
@@ -7,4 +8,15 @@
     font-weight: 600;
     margin: 20px;
     display: inline-block;
+}
+
+.card.header .card-body {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.card.header .searchbar {
+    max-width: 60%;
+    margin: 20px auto;
+
 }

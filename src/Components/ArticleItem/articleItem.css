@@ -1,0 +1,55 @@
+.article-item {
+    margin: 20px 0px;
+}
+
+.article-item * {
+    text-decoration: none;
+    color: grey;
+}
+
+.article-item:hover {
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.05),
+        -5px -5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.article-item h5 {
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.article-item h5 {
+    color: #000;
+}
+
+.article-item h5 a:hover {
+    background: #fff3cd;
+}
+
+.article-item p {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.stars {
+    font-size: 18px;
+}
+
+.rated {
+    color: #ffc107;
+}
+
+.unrated {
+    color: grey;
+}
+
+.article-meta {
+    font-size: 12px;
+}
+
+.article-meta i {
+    color: grey;
+}
+
+.article-item b {
+    color: #000;
+}

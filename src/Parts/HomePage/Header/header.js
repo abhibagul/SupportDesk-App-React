@@ -12,7 +12,7 @@ export default class header extends Component {
     return (
       <div className='card header'>
         <div className="card-body text-center">
-          <h1 className='header-title'> Welcome to <mark>{this.props.appName}</mark></h1>
+          <h1 className='header-title'> Welcome to {this.props.appName}</h1>
           <SearchBar serachPlaceholder={this.serachPlaceholder} searchButtonText={this.searchButtonText} />
         </div>
       </div>
