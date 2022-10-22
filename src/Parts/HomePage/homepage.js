@@ -4,10 +4,9 @@ import ArticleList from '../../Components/ArticlesList/articlesList'
 import './homepage.css'
 import {
     Routes,
-    Route,
-    NavLink
+    Route
 } from "react-router-dom";
-import QuestionPageParamConv from '../QuestionPage/questionPageParamConv';
+// import QuestionPageParamConv from '../QuestionPage/questionPageParamConv';
 export default class homepage extends Component {
 
     constructor(props) {
@@ -32,14 +31,7 @@ export default class homepage extends Component {
                      *  @Latest , @Popular
                      */
                 }
-                <ul className="nav nav-tabs justify-center">
-                    <li className="nav-item">
-                        <NavLink className={"nav-link text-secondary"} activeClassName="nav-link active text-primary" to="/questions/latest">Latest</NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink className={"nav-link text-secondary"} activeClassName="nav-link active text-primary" to="/questions/popular">Popular</NavLink>
-                    </li>
-                </ul>
+
                 <Routes>
                     <Route path="/" exact element={<ArticleList orderType="Latest" />} />
                     <Route path="/latest" element={<ArticleList orderType="Latest" />} />

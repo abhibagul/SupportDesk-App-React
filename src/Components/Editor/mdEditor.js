@@ -14,7 +14,10 @@ export default class mdEditor extends Component {
             style: this.props.styleProp || {},
             height: ht,
             identifier: this.props.identifier.toString() || "createQues",
+            widthStyle: this.props.widthStyle || "col-md-12",
         }
+
+
 
     }
 
@@ -23,6 +26,8 @@ export default class mdEditor extends Component {
         if (localStorage.getItem(this.state.identifier)) {
             this.setState({ ...this.state, mdCode: localStorage.getItem(this.state.identifier) })
         }
+
+
     }
 
 
@@ -30,23 +35,23 @@ export default class mdEditor extends Component {
         return (
             <div className='custom_editor'>
                 <div className='row' >
-                    <div className='col-sm-6'>
+                    <div className={this.state.widthStyle}>
                         <div className='card'>
                             <CodeMirror style={this.state.style} height={this.state.height} className='mdCode' value={this.state.mdCode} theme={githubLight} onChange={(value) => {
                                 let regex = /(<([^>]+)>)/ig;
                                 const result = value.replace(regex, '');
                                 this.setState({ ...this.state, mdCode: result });
                                 localStorage.setItem(this.state.identifier, result.toString());
+                                this.props.updateParentCode(value);
                             }} extensions={[loadLanguage('tsx')]} />
 
                         </div>
                     </div>
-                    <div className="col-sm-6">
-                        <div className='md-parsed mdPrev'>
-                            <div className='card-body '>
-                                <div className='card-body'>
-                                    <Markdown>{this.state.mdCode}</Markdown>
-                                </div>
+                    <div className={this.state.widthStyle}>
+                        <div className='md-parsed mdPrev' style={{ ...this.state.style, border: ' 1px solid #ccc' }}>
+                            <div className='card-body ' >
+                                <Markdown>{this.state.mdCode}</Markdown>
+
                             </div>
                         </div>
                     </div>

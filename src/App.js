@@ -6,9 +6,11 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import CreateQuestionPage from './Parts/CreateQuestionPage/createQuestionPage';
+import CreateQuestionPageWithNavigate from './Parts/CreateQuestionPage/createQuestionPageWithNavigate';
 import Footer from './Parts/Commons/Footer/footer';
 import QuestionPageParamConv from './Parts/QuestionPage/questionPageParamConv';
+import LoginPage from './Parts/LoginPage/loginPage';
+import RegisterPage from './Parts/RegisterPage/registerPage';
 import './App.css'
 
 export default class App extends Component {
@@ -32,9 +34,11 @@ export default class App extends Component {
            *   */}
           <Routes>
             <Route path="/" exact element={<Homepage appName={this.appName} />} />
+            <Route path="/login" element={<LoginPage appName={this.appName} />} />
+            <Route path="/register" element={<RegisterPage appName={this.appName} />} />
             <Route path='/questions/*' element={<Homepage appName={this.appName} />} />
             <Route path="/question/:questionId" element={<QuestionPageParamConv />} />
-            <Route path="/create-question" element={<CreateQuestionPage appName={this.appName} />} />
+            <Route path="/create-question" element={<CreateQuestionPageWithNavigate appName={this.appName} />} />
           </Routes>
 
           {/**

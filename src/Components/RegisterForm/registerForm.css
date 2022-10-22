@@ -1,0 +1,16 @@
+.action-link-sm {
+    font-size: 14px;
+    margin-top: 20px;
+    display: inline-block;
+    text-align: center;
+    color: #000 !important;
+}
+
+.action-link-sm:hover {
+    color: #000 !important;
+    background: #fff3cd;
+}
+
+.spinner-border.mr-3 {
+    margin-right: 5px
+}

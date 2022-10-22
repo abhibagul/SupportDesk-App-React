@@ -1,15 +1,31 @@
 import React, { Component } from 'react'
 import {
-    Link
+    Link,
+    NavLink
 } from "react-router-dom";
 import SearchBar from '../../../Components/Searchbar/searchbar';
 import './NavigationMenu.css'
 export default class navigationMenu extends Component {
     constructor(props) {
-        super(props)
-        this.searchButtonText = "Search"
-        this.serachPlaceholder = "Ask me.."
+        super(props);
+        this.state = {
+            searchButtonText: "Search",
+            serachPlaceholder: "Ask me..",
+            buttonText: 'Logout',
+            isProgress: { display: "none" },
+        }
     }
+
+    userLoggingOut = (e) => {
+        e.preventDefault();
+        this.setState({ ...this.state, isProgress: { display: "inline-block" }, buttonText: 'Please wait' })
+
+        setTimeout(() => {
+            this.setState({ ...this.state, isProgress: { display: "none" }, buttonText: 'Logout' })
+
+        }, 2000)
+    }
+
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -21,15 +37,12 @@ export default class navigationMenu extends Component {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
 
 
-                        <SearchBar serachPlaceholder={this.serachPlaceholder} searchButtonText={this.searchButtonText} />
+                        <SearchBar serachPlaceholder={this.state.serachPlaceholder} searchButtonText={this.state.searchButtonText} />
 
                         <div className="d-flex" role="search">
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li className="nav-item">
-                                    <Link className="nav-link active" aria-current="page" to="/">Home</Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link className="nav-link" to="/create-question">Ask Question</Link>
+                                    <NavLink activeClassName="active" className="nav-link" to="/create-question">Ask Question</NavLink>
                                 </li>
                                 <li className="nav-item dropdown">
                                     <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -39,7 +52,14 @@ export default class navigationMenu extends Component {
                                         <li><a className="dropdown-item" href="#">Profile</a></li>
                                         <li><a className="dropdown-item" href="#">My Questions</a></li>
                                         <li><hr className="dropdown-divider" /></li>
-                                        <li><a className="dropdown-item" href="#">Logout</a></li>
+                                        <li>
+                                            <a className="dropdown-item" onClick={this.userLoggingOut} >
+                                                <div className="spinner-border spinner-border-sm text-primary mr-3" style={this.state.isProgress} role="status">
+                                                    <span className="visually-hidden">Loading...</span>
+                                                </div>
+                                                {this.state.buttonText}
+                                            </a>
+                                        </li>
                                     </ul>
                                 </li>
                             </ul>

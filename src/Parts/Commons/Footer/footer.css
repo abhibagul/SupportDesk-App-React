@@ -1,4 +1,9 @@
 footer {
     color: grey;
     font-size: 12px;
+    margin-bottom: 20px;
+}
+
+footer b {
+    color: black
 }

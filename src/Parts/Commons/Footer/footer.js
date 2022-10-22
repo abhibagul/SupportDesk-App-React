@@ -10,7 +10,7 @@ export default class footer extends Component {
         return (
             <footer className='footer text-center'>
                 <hr />
-                (C) {this.getYear()} Copytight {this.props.appName}, All Rights Reserved
+                (C) {this.getYear()} Copytight <b>{this.props.appName}</b>, All Rights Reserved.
             </footer>
         )
     }

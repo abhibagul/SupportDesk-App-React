@@ -7,3 +7,31 @@
 .post-content-question {
     font-size: 14px
 }
+
+.keep-sticky {
+    position: sticky;
+    top: 20px;
+}
+
+.btn-addpost {
+    margin-top: 10px;
+}
+
+
+.btn-addpost .mr-3 {
+    margin-right: 5px;
+}
+
+.response {
+    margin: 20px 0px;
+}
+
+.markup-little-mod {
+    font-size: 14px;
+}
+
+.markup-little-mod pre {
+    background: #f7f7f7;
+    padding: 10px;
+    box-sizing: border-box;
+}
